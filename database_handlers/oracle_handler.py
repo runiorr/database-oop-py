@@ -6,6 +6,7 @@ class Oracle:
     def match(self, db_type):
         return "Oracle" == db_type
 
+    @property
     def list(self):
         print(f"Fetching items from {__class__.__name__}...")
         quantity = f"Oracle database has {len(self.DATA)} items."

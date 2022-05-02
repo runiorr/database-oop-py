@@ -6,6 +6,7 @@ class MySQL:
     def match(self, db_type):
         return "MySQL" == db_type
 
+    @property
     def list(self):
         print(f"Fetching items from {__class__.__name__}...")
         quantity = f"MySQL database has {len(self.DATA)} items."
