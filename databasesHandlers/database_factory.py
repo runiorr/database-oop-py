@@ -32,7 +32,7 @@ class DatabaseHandlerFactory():
     
     @staticmethod
     @interface
-    def list():
+    def fetch():
         pass
     
     @staticmethod

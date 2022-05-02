@@ -7,7 +7,7 @@ class Oracle:
         return "Oracle" == db_type
 
     @property
-    def list(self):
+    def fetch(self):
         print(f"Fetching items from {__class__.__name__}...")
         quantity = f"Oracle database has {len(self.DATA)} items."
         listing = [f"Item {self.DATA.index(item)+1}: {str(item)}" for item in self.DATA]
