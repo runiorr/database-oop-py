@@ -1,4 +1,4 @@
-from database_factory import DatabaseHandlerFactory
+from database_handlers.database_factory import DatabaseHandlerFactory
 
 print("Creating Oracle DB...")
 db = DatabaseHandlerFactory("Oracle")

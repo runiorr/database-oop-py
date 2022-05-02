@@ -1,5 +1,5 @@
-from mysql_handler import MySQL
-from oracle_handler import Oracle
+from database_handlers.mysql_handler import MySQL
+from database_handlers.oracle_handler import Oracle
 
 def interface(func):
     def wrapper(**kwargs):
