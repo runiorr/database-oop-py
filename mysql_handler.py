@@ -7,13 +7,18 @@ class MySQL:
         return "MySQL" == db_type
 
     def list(self):
-        return MySQL.DATA
+        print(f"Fetching items from {__class__.__name__}...")
+        quantity = f"MySQL database has {len(self.DATA)} items."
+        listing = [f"Item {self.DATA.index(item)+1}: {str(item)}" for item in self.DATA]
+        resp = f"Quantity: {quantity}\nItems: {listing}"
+        print(resp)
     
     def save(self, item):
-        MySQL.DATA.append(item)
+        print(f"Saving item: {item} to {__class__.__name__}")
+        self.DATA.append(item)
 
     def update(self):
-        print("Update with MySQL")
+        return ("Update with MySQL")
 
     def delete(self):
-        print("Delete with MySQL")
+        return ("Delete with MySQL")

@@ -1,9 +1,23 @@
 from database_factory import DatabaseHandlerFactory
 
-db = "Oracle"
+print("Creating Oracle DB...")
+db = DatabaseHandlerFactory("Oracle")
+db.save(item="Banana")
+db.save(item="Jose")
+db.save(item={"Name": "Jose", "Age": 15})
+db.save(item=999)
+db.list()
 
-db_handler = DatabaseHandlerFactory(db)
+print("")
 
-db_handler.save(item=2)
+print("Switching to MySQL DB...")
+db.change_db("MySQL")
+db.save(item="Arvore")
+db.save(item={"Hotel": "Trivago"})
+db.list()
 
-db_handler.list(all=True)
+print("")
+
+print("Switching back to Oracle...")
+db.change_db("Oracle")
+db.list()

@@ -25,6 +25,11 @@ class DatabaseHandlerFactory():
             if db.match(db_type):
                 return db
     
+    def change_db(self, db_type):
+        for db in DatabaseHandlerFactory._HANDLERS:
+            if db.match(db_type):
+                DatabaseHandlerFactory._db=db
+    
     @staticmethod
     @interface
     def list():

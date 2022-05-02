@@ -6,13 +6,16 @@ class Oracle:
     def match(self, db_type):
         return "Oracle" == db_type
 
-    def list(self, all: bool):
-        if all:
-            return Oracle.DATA
+    def list(self):
+        print(f"Fetching items from {__class__.__name__}...")
+        quantity = f"Oracle database has {len(self.DATA)} items."
+        listing = [f"Item {self.DATA.index(item)+1}: {str(item)}" for item in self.DATA]
+        resp = f"Quantity: {quantity}\nItems: {listing}"
+        print(resp)
     
     def save(self, item):
-        print(item)
-        Oracle.DATA.append(item)
+        print(f"Saving item: {item} to {__class__.__name__}")
+        self.DATA.append(item)
 
     def update(self):
         return ("Update with Oracle")
