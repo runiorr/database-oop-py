@@ -33,9 +33,11 @@ class DatabaseFactory:
     def change_db(db):
         """ Switch database being used """
         if DatabaseFactory.database.db_name == db:
-            raise Exception(f"{db} is already connected")
+            raise Exception(f"{db} is already connected.")
         if DatabaseFactory.database.connection == 1:
-            raise Exception(f"Close {DatabaseFactory.database.db_name} connection before switch to {db}")
+            if db not in DatabaseFactory.HANDLERS:
+                raise Exception(f"Close {DatabaseFactory.database.db_name} connection and choose an existing database.")
+            raise Exception(f"Close {DatabaseFactory.database.db_name} connection before switch to {db}.")
         DatabaseFactory.database = DatabaseFactory.__get_database(db)
     
     @staticmethod
