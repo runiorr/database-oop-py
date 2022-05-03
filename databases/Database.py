@@ -1,4 +1,5 @@
 from databases.interfaces.IDatabase import IDatabase
+from progressBar import progress
 
 class Database(IDatabase):
     """ Father class of databases """
@@ -15,22 +16,32 @@ class Database(IDatabase):
     @property
     def fetch(self):
         self._verify_connection()
+
         print(f"Fetching items from {self.db_name}...")
         listing = [f"Item {self.data.index(item)+1}: {str(item)}" for item in self.data]
-        resp = f"{self.db_name} has {len(self.data)} item(s) - Item(s): {listing}"
+        resp = f"{self.db_name} has {len(self.data)} item(s) - {listing}"
         print(resp)
     
-    def save(self, item):
+    def save(self, items):
         self._verify_connection()
-        self.data.append(item)
-        print(f"Saved item '{item}' to {self.db_name}")
+
+        if type(items) == str:
+            print(f"Saving {items}")
+            progress("Uploading")
+            self.data.append(items)
+            return
+        print([f"Saving {item}" for item in items])
+        progress("Uploading")
+        [self.data.append(item) for item in items]
 
     def update(self):
         self._verify_connection()
+
         return (f"Update with {self.db_name}")
 
     def delete(self):
         self._verify_connection()
+
         return (f"Delete with {self.db_name}")
     
     @property

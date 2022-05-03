@@ -7,7 +7,7 @@ class IDatabase:
     def fetch(self):
         pass
     
-    def save(self, item):
+    def save(self):
         pass
 
     def update(self):

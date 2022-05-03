@@ -6,11 +6,11 @@ def interface(func):
     def wrapper(**kwargs):
         handler_function: function = eval(f"DatabaseFactory.database.{func.__name__}")
         if kwargs:
-            factory_args: list = [*kwargs]
-            handler_args: list = handler_function.__code__.co_varnames
-            keys: set = set(factory_args) & set(handler_args)
-            kwargs = dict((key,value) for key, value in kwargs.items() if key in keys)
-            return handler_function(**kwargs)
+            # factory_args: list = [*kwargs]
+            # handler_args: list = handler_function.__code__.co_varnames
+            # keys: set = set(factory_args) & set(handler_args)
+            # kwargs = dict((key,value) for key, value in kwargs.items() if key in keys)
+            return handler_function(kwargs.get("item"))
         return handler_function
     return wrapper
 
