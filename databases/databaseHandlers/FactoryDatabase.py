@@ -10,7 +10,7 @@ def interface(func):
             # handler_args: list = handler_function.__code__.co_varnames
             # keys: set = set(factory_args) & set(handler_args)
             # kwargs = dict((key,value) for key, value in kwargs.items() if key in keys)
-            return handler_function(kwargs.get("item"))
+            return handler_function(kwargs.get(*kwargs))
         return handler_function
     return wrapper
 
