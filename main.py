@@ -2,8 +2,8 @@ from databases.databaseHandlers.FactoryDatabase import DatabaseFactory
 
 db = DatabaseFactory("Athena")
 
-db.open()
 db.save(item="JOSE")
+db.open()
 db.fetch()
 db.close()
 

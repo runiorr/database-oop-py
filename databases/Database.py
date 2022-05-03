@@ -1,7 +1,7 @@
 from databases.interfaces.IDatabase import IDatabase
 
 class Database(IDatabase):
-    """ Interface com banco Oracle """
+    """ Father class of databases """
 
     def __init__(self):
         self.db_name = self.__class__.__name__

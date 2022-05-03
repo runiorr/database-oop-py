@@ -15,14 +15,15 @@ def interface(func):
     return wrapper
 
 class DatabaseFactory:
+    """ Database factory """
 
     HANDLERS = [MySQL(), Oracle(), Athena()]
 
     def __init__(self, db_type):
-        DatabaseFactory.database = self.get_database(db_type)
+        DatabaseFactory.database = self.__get_database(db_type)
 
     @staticmethod
-    def get_database(db_type):
+    def __get_database(db_type):
         for db in DatabaseFactory.HANDLERS:
             if db.match(db_type):
                 return db
@@ -30,38 +31,45 @@ class DatabaseFactory:
     
     @staticmethod
     def change_db(db):
+        """ Switch database being used """
         if DatabaseFactory.database.db_name == db:
             raise Exception(f"{db} is already connected")
         if DatabaseFactory.database.connection == 1:
             raise Exception(f"Close {DatabaseFactory.database.db_name} connection before switch to {db}")
-        DatabaseFactory.database = DatabaseFactory.get_database(db)
+        DatabaseFactory.database = DatabaseFactory.__get_database(db)
     
     @staticmethod
     @interface
     def fetch():
+        """ Get all items storaged in database """
         pass
     
     @staticmethod
     @interface
     def save():
+        """ Save an item in the database """
         pass
 
     @staticmethod
     @interface
     def update():
+        """ Update an item in the database """
         pass
 
     @staticmethod
     @interface
     def delete():
+        """ Delete an item in the database """
         pass
 
     @staticmethod
     @interface
     def open():
+        """ Open a connection with the chosen database """
         pass
 
     @staticmethod
     @interface
     def close():
+        """ Close the connection with the chosen database """
         pass
