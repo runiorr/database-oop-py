@@ -1,6 +1,6 @@
-from databasesHandlers.mysql_handler import MySQL
-from databasesHandlers.oracle_handler import Oracle
-from databasesHandlers.athena_handler import Athena
+from databaseHandlers.mysql_handler import MySQL
+from databaseHandlers.oracle_handler import Oracle
+from databaseHandlers.athena_handler import Athena
 
 def interface(func):
     def wrapper(**kwargs):

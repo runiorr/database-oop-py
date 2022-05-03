@@ -1,4 +1,4 @@
-from databasesHandlers.db_interface import Database
+from databaseHandlers.db_interface import Database
 
 class Oracle(Database):
     """ Interface com banco Oracle """

@@ -1,4 +1,4 @@
-from databasesHandlers.db_interface import Database
+from databaseHandlers.db_interface import Database
 
 class Athena(Database):
     """ Interface com banco Athena """
