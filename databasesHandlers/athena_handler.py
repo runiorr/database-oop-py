@@ -1,10 +1,10 @@
 from databasesHandlers.db_interface import Database
 
-class Oracle(Database):
-    """ Interface com banco Oracle """
+class Athena(Database):
+    """ Interface com banco Athena """
 
     def __init__(self):
         super().__init__()
 
     def match(self, db_type):
-        return "Oracle" == db_type
+        return "Athena" == db_type

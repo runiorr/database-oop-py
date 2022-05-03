@@ -1,25 +1,32 @@
-from databasesHandlers.database_factory import DatabaseHandlerFactory
+from databasesHandlers.db_factory import DatabaseHandlerFactory
 
-db = DatabaseHandlerFactory("Oracle")
+db = DatabaseHandlerFactory("Athena")
 
-print("Creating Oracle DB...")
-db.save(item="Banana")
-db.save(item="Jose")
-db.save(item={"Name": "Jose", "Age": 15})
-db.save(item=999)
+db.open()
+db.save(item="JOSE")
 db.fetch()
+db.close()
 
 print("")
 
-print("Switching to MySQL DB...")
 db.change_db("MySQL")
-db.save(item="Arvore")
+db.open()
 db.save(item={"Hotel": "Trivago"})
 db.fetch()
+db.close()
 
 print("")
 
-print("Switching back to Oracle...")
 db.change_db("Oracle")
+db.open()
 db.save(item="DvD")
 db.fetch()
+db.close()
+
+print("")
+
+db.change_db("Athena")
+db.open()
+db.save(item="Games")
+db.fetch()
+db.close()
