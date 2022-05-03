@@ -1,6 +1,6 @@
 from databases.databaseHandlers.database_factory import DatabaseFactory
 
-db = DatabaseFactory("Athena")
+db = DatabaseFactory("PostgreSQL")
 
 db.open()
 db.save(items=["Carro", "Moto"])
@@ -25,7 +25,7 @@ db.close()
 
 print("")
 
-db.change_db("Athena")
+db.change_db("PostgreSQL")
 db.open()
 db.save(items="Games")
 db.fetch()

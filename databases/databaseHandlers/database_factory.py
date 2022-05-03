@@ -1,6 +1,6 @@
 from databases.databaseHandlers.mysql_handler import MySQL
 from databases.databaseHandlers.oracle_handler import Oracle
-from databases.databaseHandlers.athena_handler import Athena
+from databases.databaseHandlers.postgresql_handler import PostgreSQL
 
 def interface(func):
     def wrapper(**kwargs):
@@ -17,7 +17,7 @@ def interface(func):
 class DatabaseFactory:
     """ Database factory """
 
-    HANDLERS = [MySQL(), Oracle(), Athena()]
+    HANDLERS = [MySQL(), Oracle(), PostgreSQL()]
 
     def __init__(self, db_type):
         DatabaseFactory.database = self.__get_database(db_type)
