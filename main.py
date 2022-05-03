@@ -1,6 +1,6 @@
-from databaseHandlers.db_factory import DatabaseHandlerFactory
+from databaseHandlers.FactoryDatabase import DatabaseFactory
 
-db = DatabaseHandlerFactory("Athena")
+db = DatabaseFactory("Athena")
 
 db.open()
 db.save(item="JOSE")

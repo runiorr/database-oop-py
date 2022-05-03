@@ -1,6 +1,6 @@
-from databaseHandlers.db_interface import Database
+from databaseHandlers.IDatabase import IDatabase
 
-class Athena(Database):
+class Athena(IDatabase):
     """ Interface com banco Athena """
 
     def __init__(self):

@@ -1,4 +1,4 @@
-class Database:
+class IDatabase:
     """ Interface com banco Oracle """
 
     def __init__(self):

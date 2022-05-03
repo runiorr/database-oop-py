@@ -4,7 +4,7 @@ from databaseHandlers.athena_handler import Athena
 
 def interface(func):
     def wrapper(**kwargs):
-        handler_function: function = eval(f"DatabaseHandlerFactory.database.{func.__name__}")
+        handler_function: function = eval(f"DatabaseFactory.database.{func.__name__}")
         if kwargs:
             factory_args: list = [*kwargs]
             handler_args: list = handler_function.__code__.co_varnames
@@ -14,27 +14,27 @@ def interface(func):
         return handler_function
     return wrapper
 
-class DatabaseHandlerFactory:
+class DatabaseFactory:
 
     HANDLERS = [MySQL(), Oracle(), Athena()]
 
     def __init__(self, db_type):
-        DatabaseHandlerFactory.database = self.get_database(db_type)
+        DatabaseFactory.database = self.get_database(db_type)
 
     @staticmethod
     def get_database(db_type):
-        for db in DatabaseHandlerFactory.HANDLERS:
+        for db in DatabaseFactory.HANDLERS:
             if db.match(db_type):
                 return db
         raise Exception(f"Database {db_type} not found.")
     
     @staticmethod
     def change_db(db):
-        if DatabaseHandlerFactory.database.db_name == db:
+        if DatabaseFactory.database.db_name == db:
             raise Exception(f"{db} is already connected")
-        if DatabaseHandlerFactory.database.connection == 1:
-            raise Exception(f"Close {DatabaseHandlerFactory.database.db_name} connection before switch to {db}")
-        DatabaseHandlerFactory.database = DatabaseHandlerFactory.get_database(db)
+        if DatabaseFactory.database.connection == 1:
+            raise Exception(f"Close {DatabaseFactory.database.db_name} connection before switch to {db}")
+        DatabaseFactory.database = DatabaseFactory.get_database(db)
     
     @staticmethod
     @interface
