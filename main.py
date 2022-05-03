@@ -19,7 +19,7 @@ print("")
 
 db.change_db("Oracle")
 db.open()
-db.save(items="DvD")
+db.save(items=["DvD", "CD", "MP3", "Xbox"])
 db.fetch()
 db.close()
 

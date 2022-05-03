@@ -22,15 +22,15 @@ def printProgressBar (iteration, total, prefix = '', suffix = '', decimals = 1, 
     if iteration == total: 
         print()
 
-def progress(prefix):
+def progress(prefix, items_lengh=1):
     # A List of Items
-    items = list(range(0, 15))
-    l = len(items)
+    items = list(range(0, items_lengh*5))
+    duration = len(items)
 
     # Initial call to print 0% progress
-    printProgressBar(0, l, prefix = f'{prefix}:', suffix = 'Complete', length = 50)
+    printProgressBar(0, duration, prefix = f'{prefix}:', suffix = 'Complete', length = 50)
     for i, item in enumerate(items):
         # Do stuff...
         time.sleep(0.1)
         # Update Progress Bar
-        printProgressBar(i + 1, l, prefix = f'{prefix}:', suffix = 'Complete', length = 50)
+        printProgressBar(i + 1, duration, prefix = f'{prefix}:', suffix = 'Complete', length = 50)

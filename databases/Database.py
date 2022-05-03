@@ -1,4 +1,4 @@
-from progressBar import progress
+from utils.progressBar import progress
 
 class Database():
     """ Father class of databases """
@@ -26,11 +26,11 @@ class Database():
 
         if type(items) == str:
             print(f"Saving {items}")
-            progress("Uploading")
+            progress(prefix="Uploading")
             self.data.append(items)
             return
         print([f"Saving {item}" for item in items])
-        progress("Uploading")
+        progress(prefix="Uploading", items_lengh=len(items))
         [self.data.append(item) for item in items]
 
     def update(self):
