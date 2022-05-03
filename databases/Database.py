@@ -1,7 +1,6 @@
-from databases.interfaces.IDatabase import IDatabase
 from progressBar import progress
 
-class Database(IDatabase):
+class Database():
     """ Father class of databases """
 
     def __init__(self):

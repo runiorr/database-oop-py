@@ -1,4 +1,4 @@
-from databases.databaseHandlers.FactoryDatabase import DatabaseFactory
+from databases.databaseHandlers.database_factory import DatabaseFactory
 
 db = DatabaseFactory("Athena")
 
