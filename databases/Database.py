@@ -1,4 +1,6 @@
-class IDatabase:
+from databases.interfaces.IDatabase import IDatabase
+
+class Database(IDatabase):
     """ Interface com banco Oracle """
 
     def __init__(self):

@@ -1,6 +1,6 @@
-from databaseHandlers.IDatabase import IDatabase
+from databases.Database import Database
 
-class MySQL(IDatabase):
+class MySQL(Database):
     """ Interface com banco MySQL """
 
     def __init__(self):
