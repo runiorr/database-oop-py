@@ -12,6 +12,7 @@ class PostgreSQL:
     
     def commit(self):
         self.connection.commit()
+        print("Changes have been persisted.")
         
     def fetch(self, fetchAll=False):
         if fetchAll:
