@@ -12,23 +12,16 @@ class PostgreSQL:
     
     def commit(self):
         self.connection.commit()
-        print("Changes have been persisted.")
+        print("Changes have been commited.")
         
     def fetch(self, fetchAll=False):
         if fetchAll:
-            try:
-                data = self.cursor.fetchall()
-                for d in data:
-                    print(f"Query response: {d}")
-            except:
-                print("Nothing to fetch.")
-        else:
-            try:
-                data = self.cursor.fetchall()
-                print([f"Query response: {d}\n" for d in data])
-            except:
-                print("Nothing to fetch.")
-        
+            data = self.cursor.fetchall()
+            for d in data:
+                print(f"Fetch response: {d}")
+            return
+        data = self.cursor.fetchone()
+        print(f"Fetch response: {data}")
     
     def open(self):
         print("Openning connection...")

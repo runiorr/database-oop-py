@@ -55,6 +55,7 @@ db.execute(sql=INSERT_SQL, vars=INSERT_VARS)
 SELECT_SQL = "SELECT * FROM people"
 db.execute(sql=SELECT_SQL)
 db.fetch(fetchAll=True)
+db.fetch()
 
 db.commit()
 db.close()
