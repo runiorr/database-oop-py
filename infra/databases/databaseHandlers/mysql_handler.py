@@ -1,6 +1,6 @@
-from databases.Database import Database
+from infra.dummy.Database import DummyDatabase
 
-class MySQL(Database):
+class MySQL(DummyDatabase):
     """ Interface com banco MySQL """
 
     def __init__(self):

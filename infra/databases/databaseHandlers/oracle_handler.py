@@ -1,6 +1,6 @@
-from databases.Database import Database
+from infra.dummy.Database import DummyDatabase
 
-class Oracle(Database):
+class Oracle(DummyDatabase):
     """ Interface com banco Oracle """
 
     def __init__(self):

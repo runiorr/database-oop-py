@@ -1,6 +1,6 @@
 from utils.progressBar import progress
 
-class Database():
+class DummyDatabase():
     """ Father class of databases """
 
     def __init__(self):
